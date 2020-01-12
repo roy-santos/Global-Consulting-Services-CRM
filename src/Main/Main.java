@@ -1,6 +1,7 @@
-package JDBCApp;
+package Main;
 
-import Utilities.DBConnection;
+import DAO.DBConnection;
+import DAO.QueryHelper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,14 +10,13 @@ import javafx.stage.Stage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../View_Controller/sample.fxml"));
         primaryStage.setTitle("JDBC App");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
@@ -64,15 +64,15 @@ public class Main extends Application {
 
             //Execute INSERT statement
 //            stmt.executeUpdate(sqlStatement);
-            Query.makeQuery(sqlStatement);
+            QueryHelper.makeQuery(sqlStatement);
 
 
             // Write SQL statement
              sqlStatement = "SELECT * FROM employee_tbl";
-             Query.makeQuery(sqlStatement);
+             QueryHelper.makeQuery(sqlStatement);
 
             // Execute Statement and Create ResultSet object
-            ResultSet result = Query.getResult();
+            ResultSet result = QueryHelper.getResult();
             // Gets all records from ResultSet object
             while(result.next()) {
                 System.out.print(result.getInt("EmployeeID") + ", ");

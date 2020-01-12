@@ -1,4 +1,4 @@
-package JDBCApp;
+package View_Controller;
 
 public class Controller {
 }

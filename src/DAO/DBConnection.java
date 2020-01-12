@@ -1,4 +1,4 @@
-package Utilities;
+package DAO;
 
 import com.mysql.jdbc.Connection;
 

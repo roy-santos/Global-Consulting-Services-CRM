@@ -1,11 +1,11 @@
-package JDBCApp;
+package DAO;
 
-import Utilities.DBConnection;
+import DAO.DBConnection;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Query {
+public class QueryHelper {
 
     private static String query;
     private static Statement stmt;
