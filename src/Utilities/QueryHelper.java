@@ -1,6 +1,6 @@
-package DAO;
+package Utilities;
 
-import DAO.DBConnection;
+import Utilities.DBConnection;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
