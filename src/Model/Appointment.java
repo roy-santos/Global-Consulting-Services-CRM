@@ -1,5 +1,7 @@
 package Model;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Appointment {
@@ -9,7 +11,7 @@ public class Appointment {
     private int userId;
     private String title;
     private String description;
-    private Address location;
+    private String location;
     private String contact;
     private String type;
     private String url;
@@ -60,11 +62,11 @@ public class Appointment {
         this.description = description;
     }
 
-    public Address getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Address location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -140,7 +142,7 @@ public class Appointment {
         this.lastUpdateBy = lastUpdateBy;
     }
 
-    public Appointment(int appointmentId, int customerId, int userId, String title, String description, Address location, String contact, String type, String url, Date start, Date end, Date createDate, String createdBy, Date lastUpdate, String lastUpdateBy) {
+    public Appointment(int appointmentId, int customerId, int userId, String title, String description, String location, String contact, String type, String url, Timestamp start, Timestamp end, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy) {
         this.appointmentId = appointmentId;
         this.customerId = customerId;
         this.userId = userId;

@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Customer {
@@ -12,9 +14,9 @@ public class Customer {
     private String customerName;
     private int addressId;
     private boolean active;
-    private Date createDate;
+    private Timestamp createDate;
     private String createdBy;
-    private Date lastUpdate;
+    private Timestamp lastUpdate;
     private String lastUpdateBy;
     private ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
 
@@ -54,7 +56,7 @@ public class Customer {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
     }
 
@@ -70,7 +72,7 @@ public class Customer {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(Timestamp lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
@@ -94,7 +96,7 @@ public class Customer {
         this.allAppointments.remove(appt);
     }
 
-    public Customer(int customerId, String customerName, int addressId, boolean active, Date createDate, String createdBy, Date lastUpdate, String lastUpdateBy) {
+    public Customer(int customerId, String customerName, int addressId, boolean active, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.addressId = addressId;

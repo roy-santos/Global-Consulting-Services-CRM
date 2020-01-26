@@ -2,25 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DAO/UserAuthentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/queryExamples.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View_Controller/LoginScreen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View_Controller/LoginScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View_Controller/MainScreen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View_Controller/MainScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View_Controller/x.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/Logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AddCityScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AddCustomerScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AppointmentScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/CustomerScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/HomeScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ModifyCityScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DAO/AppointmentsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DAO/CitiesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DAO/CountriesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/AddCityScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/AddCustomerScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/AppointmentScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/CustomerScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/HomeScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/ModifyCityScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/JDBCApp/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/JDBCApp/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/JDBCApp/Query.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/JDBCApp/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/QueryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/QueryHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/DAO/UserAuthentication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Appointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/City.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/City.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Country.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Country.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Directory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View_Controller/LoginScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View_Controller/LoginScreenController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View_Controller/MainScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View_Controller/MainScreenController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View_Controller/x.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/UserAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/LoginDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View_Controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View_Controller/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View_Controller/LoginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/LoginScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View_Controller/LoginScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View_Controller/MainScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View_Controller/MainScreenController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View_Controller/x.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,16 +141,24 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/DAODemo2/DAODemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/View_Controller" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\DAO" />
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src" />
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\img" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View_Controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="View_Controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View_Controller" />
     </key>
   </component>
@@ -245,54 +277,108 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser" timestamp="1579029233359">
+    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser" timestamp="1580011488446">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1579029233359" />
-    <state x="1170" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579054353672">
+    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1580011488446" />
+    <state x="1092" y="414" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1580018293613">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1170" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1579054353672" />
+    <state x="1092" y="414" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1050@0.0.1920.1050" timestamp="1580018293613" />
+    <state x="1170" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579583728345">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1170" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1579583728345" />
+    <state x="707" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1580000241168">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="707" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1050@0.0.1920.1050" timestamp="1580000241168" />
     <state x="1220" y="281" key="FileChooserDialogImpl" timestamp="1578811927096">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1220" y="281" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1578811927096" />
-    <state width="914" height="153" key="GridCell.Tab.0.bottom" timestamp="1579159278414">
+    <state width="914" height="258" key="GridCell.Tab.0.bottom" timestamp="1580024583725">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="153" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1579159278414" />
-    <state width="914" height="153" key="GridCell.Tab.0.center" timestamp="1579159278414">
+    <state width="1557" height="278" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="914" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1580024583725" />
+    <state width="914" height="258" key="GridCell.Tab.0.center" timestamp="1580024583724">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="153" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1579159278414" />
-    <state width="914" height="153" key="GridCell.Tab.0.left" timestamp="1579159278414">
+    <state width="1557" height="278" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="914" height="258" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1580024583724" />
+    <state width="914" height="258" key="GridCell.Tab.0.left" timestamp="1580024583724">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="153" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1579159278414" />
-    <state width="914" height="153" key="GridCell.Tab.0.right" timestamp="1579159278414">
+    <state width="1557" height="278" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="914" height="258" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1580024583724" />
+    <state width="914" height="258" key="GridCell.Tab.0.right" timestamp="1580024583724">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="153" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1579159278414" />
+    <state width="1557" height="278" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="914" height="258" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1580024583724" />
+    <state width="1877" height="349" key="GridCell.Tab.1.bottom" timestamp="1580022516461">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1557" height="278" key="GridCell.Tab.1.bottom/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="1877" height="349" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1580022516461" />
+    <state width="1877" height="349" key="GridCell.Tab.1.center" timestamp="1580022516461">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1557" height="278" key="GridCell.Tab.1.center/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="1877" height="349" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1580022516461" />
+    <state width="1877" height="349" key="GridCell.Tab.1.left" timestamp="1580022516461">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1557" height="278" key="GridCell.Tab.1.left/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="1877" height="349" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1580022516461" />
+    <state width="1877" height="349" key="GridCell.Tab.1.right" timestamp="1580022516461">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1557" height="278" key="GridCell.Tab.1.right/0.0.1600.870@0.0.1600.870" timestamp="1579650748632" />
+    <state width="1877" height="349" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1580022516461" />
     <state x="880" y="104" key="SettingsEditor" timestamp="1578464394428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="880" y="104" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1578464394428" />
-    <state x="1135" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1579134989191">
+    <state x="1135" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1579378152157">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1135" y="350" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1579134989191" />
+    <state x="1135" y="350" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1579378152157" />
     <state x="1104" y="423" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1578447806415">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1104" y="423" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1050@0.0.1920.1050" timestamp="1578447806415" />
-    <state x="953" y="0" width="974" height="1057" key="dock-window-1" timestamp="1579156134139">
+    <state x="-8" y="0" width="941" height="1057" key="dock-window-1" timestamp="1580019625857">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="953" y="0" width="974" height="1057" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1579156134139" />
-    <state x="953" y="0" width="974" height="1057" key="dock-window-2" timestamp="1579158963528">
+    <state x="793" y="0" width="814" height="877" key="dock-window-1/0.0.1600.870@0.0.1600.870" timestamp="1579648345078" />
+    <state x="-8" y="0" width="941" height="1057" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1580019625857" />
+    <state x="29" y="471" width="979" height="556" key="dock-window-2" timestamp="1579995836901">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="953" y="0" width="974" height="1057" key="dock-window-2/0.0.1920.1050@0.0.1920.1050" timestamp="1579158963528" />
+    <state x="-5" y="515" width="750" height="426" key="dock-window-2/0.0.1600.870@0.0.1600.870" timestamp="1579642171137" />
+    <state x="29" y="471" width="979" height="556" key="dock-window-2/0.0.1920.1050@0.0.1920.1050" timestamp="1579995836901" />
+    <state x="-7" y="478" width="836" height="578" key="dock-window-3" timestamp="1579739048926">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-7" y="478" width="836" height="578" key="dock-window-3/0.0.1920.1050@0.0.1920.1050" timestamp="1579739048926" />
+    <state x="-7" y="559" width="1089" height="498" key="dock-window-4" timestamp="1579739743806">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-7" y="559" width="1089" height="498" key="dock-window-4/0.0.1920.1050@0.0.1920.1050" timestamp="1579739743806" />
+    <state x="-6" y="513" width="1038" height="546" key="dock-window-5" timestamp="1579743144197">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-6" y="513" width="1038" height="546" key="dock-window-5/0.0.1920.1050@0.0.1920.1050" timestamp="1579743144197" />
+    <state x="-7" y="0" width="974" height="1057" key="dock-window-6" timestamp="1579995836901">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-7" y="0" width="974" height="1057" key="dock-window-6/0.0.1920.1050@0.0.1920.1050" timestamp="1579995836901" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1579581105560">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1579581105560" />
     <state x="685" y="231" key="new project wizard" timestamp="1578677870894">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

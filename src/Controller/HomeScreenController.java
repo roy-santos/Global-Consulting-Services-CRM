@@ -1,0 +1,134 @@
+package Controller;
+
+import DAO.AppointmentsDAO;
+import DAO.CustomerDAO;
+import Model.Session;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import java.io.IOException;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.ResourceBundle;
+
+public class HomeScreenController implements Initializable {
+
+    Stage stage;
+    Parent scene;
+
+    @FXML
+    private Circle imageCircle;
+
+    @FXML
+    private Button homeBtn;
+
+    @FXML
+    private Button customerBtn;
+
+    @FXML
+    private Button appointmentsBtn;
+
+    @FXML
+    private Button signOutBtn;
+
+    @FXML
+    private Label userNameField;
+
+    @FXML
+    private Label nextAppointmentDate;
+
+    @FXML
+    private Label nextCustomerName;
+
+    @FXML
+    void onActionSchedReport(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActionApptReport(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActionCustReport(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onActionApptScreen(ActionEvent event) throws IOException {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/View/AppointmentScreen.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
+
+    @FXML
+    void onActionCustomersScreen(ActionEvent event) throws IOException {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/View/CustomerScreen.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
+
+    @FXML
+    void onActionHomeScreen(ActionEvent event) throws IOException {
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/View/HomeScreen.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
+
+    @FXML
+    void onActionSignOut(ActionEvent event) throws IOException {
+        Session.endSession();
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/View/LoginScreen.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
+
+    private void setUserImage() {
+        // Default image is show. Logic can be added to select user image if one is available in the img folder
+        userNameField.setText(Session.currentUser.getUsername());
+        Image userImage = new Image("/img/user.png",false);
+        imageCircle.setFill(new ImagePattern(userImage));
+    }
+
+    private void setNextInfo() {
+        if(Session.allAppointments.isEmpty()) {
+            AppointmentsDAO.loadAppointments(Session.currentUser.getUserId());
+        }
+
+        Date nextAppt = Session.allAppointments.get(0).getStart();
+        DateFormat dateFormat = new SimpleDateFormat("MMMM DD, YYYY");
+        DateFormat timeFormat = new SimpleDateFormat("hh:mm aa");
+        String dateApptStr = dateFormat.format(nextAppt);
+        String timeApptStr = timeFormat.format(nextAppt);
+        nextAppointmentDate.setText(dateApptStr + " at " + timeApptStr);
+
+        if(Session.allCustomers.isEmpty()) {
+            CustomerDAO.loadCustomers(Session.currentUser.getUsername());
+        }
+
+        nextCustomerName.setText(Session.allCustomers.get(0).getCustomerName());
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setUserImage();
+        setNextInfo();
+        homeBtn.setStyle("-fx-background-color: #2a9df4; ");
+    }
+}

@@ -3,22 +3,31 @@ package Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Directory {
+import java.sql.Timestamp;
+import java.util.Date;
+
+public class Session {
 
     public static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     public static ObservableList<City> allCities = FXCollections.observableArrayList();
     public static ObservableList<Country> allCountries = FXCollections.observableArrayList();
+    public static ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
+    public static User currentUser;
+
+    public static void createSessionUser(int userId, String username, String password, Boolean active, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy){
+        currentUser = new User(userId, username, password, active, createDate, createdBy, lastUpdate, lastUpdateBy);
+    }
 
     public static ObservableList<Customer> getAllCustomers() {
         return allCustomers;
     }
 
     public static void addCustomer(Customer customer) {
-        Directory.allCustomers.add(customer);
+        Session.allCustomers.add(customer);
     }
 
     public static void deleteCustomer(Customer customer) {
-        Directory.allCustomers.remove(customer);
+        Session.allCustomers.remove(customer);
     }
 
     public static ObservableList<City> getAllCities() {
@@ -26,11 +35,11 @@ public class Directory {
     }
 
     public static void addCity(City city) {
-        Directory.allCities.add(city);
+        Session.allCities.add(city);
     }
 
     public static void deleteCity(City city) {
-        Directory.allCities.remove(city);
+        Session.allCities.remove(city);
     }
 
     public static ObservableList<Country> getAllCountries() {
@@ -38,10 +47,18 @@ public class Directory {
     }
 
     public static void addCountry(Country country) {
-        Directory.allCountries.add(country);
+        Session.allCountries.add(country);
     }
 
     public static void deleteCustomer(Country country) {
-        Directory.allCountries.remove(country);
+        Session.allCountries.remove(country);
+    }
+
+    public static void endSession() {
+        allCustomers.clear();
+        allCities.clear();
+        allCountries.clear();
+        allAppointments.clear();
+        currentUser = null;
     }
 }

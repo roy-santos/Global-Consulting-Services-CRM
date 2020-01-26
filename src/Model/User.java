@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class User {
@@ -77,7 +78,7 @@ public class User {
         this.lastUpdateBy = lastUpdateBy;
     }
 
-    public User(int userId, String username, String password, Boolean active, Date createDate, String createdBy, Date lastUpdate, String lastUpdateBy) {
+    public User(int userId, String username, String password, Boolean active, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy) {
         this.userId = userId;
         this.username = username;
         this.password = password;

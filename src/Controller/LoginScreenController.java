@@ -1,9 +1,6 @@
-package View_Controller;
+package Controller;
 
-import DAO.UserAuthentication;
-import Utilities.DBConnection;
-import Utilities.QueryHelper;
-import com.mysql.jdbc.Connection;
+import DAO.LoginDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.net.URL;;
 import java.util.ResourceBundle;
 
 public class LoginScreenController implements Initializable {
@@ -34,14 +28,11 @@ public class LoginScreenController implements Initializable {
     private TextField passwordField;
 
     @FXML
-    private Button signOnBtn;
-
-    @FXML
     void onActionSignOnBtn(ActionEvent event) throws IOException {
 
-        if(UserAuthentication.authenticate(usernameField.getText(), passwordField.getText())) {
+        if(LoginDAO.authenticateLogin(usernameField.getText(), passwordField.getText())) {
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource("/View_Controller/MainScreen.fxml"));
+            scene = FXMLLoader.load(getClass().getResource("/View/HomeScreen.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
         } else {

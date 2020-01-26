@@ -59,6 +59,11 @@ public class Country {
         this.lastUpdateBy = lastUpdateBy;
     }
 
+    @Override
+    public String toString() {
+        return country;
+    }
+
     public Country(int countryId, String country, Date createDate, String createdBy, Date lastUpdate, String lastUpdateBy) {
         this.countryId = countryId;
         this.country = country;
