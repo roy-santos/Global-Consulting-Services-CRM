@@ -52,7 +52,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0">
                      <children>
-                        <Button fx:id="homeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionHomeScreen" text="Home">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionHomeScreen" text="Home">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -67,7 +67,7 @@
                   </HBox>
                   <HBox alignment="CENTER">
                      <children>
-                        <Button fx:id="customerBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionCustomersScreen" text="Customers">
+                        <Button fx:id="customerBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Customers">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -82,7 +82,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0">
                      <children>
-                        <Button fx:id="appointmentsBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionApptScreen" text="Appointments">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionApptScreen" text="Appointments">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -98,7 +98,7 @@
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="255.0" />
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="325.0">
                      <children>
-                        <Button fx:id="signOutBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionSignOut" text="Sign Out">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionSignOut" text="Sign Out">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -133,8 +133,8 @@
                     <columns>
                       <TableColumn fx:id="custIdCol" minWidth="56.0" prefWidth="-1.0" text="CustID" />
                       <TableColumn fx:id="customerNameCol" minWidth="100.0" prefWidth="-1.0" text="Customer Name" />
-                        <TableColumn fx:id="addressCol" minWidth="75.0" prefWidth="-1.0" text="Address" />
-                        <TableColumn fx:id="activeCol" minWidth="50.0" prefWidth="-1.0" text="Active" />
+                        <TableColumn fx:id="addressIdCol" minWidth="68.0" prefWidth="68.0" text="Address ID" />
+                        <TableColumn fx:id="activeCol" minWidth="50.0" prefWidth="57.0" text="Active" />
                         <TableColumn fx:id="createDateCol" minWidth="100.0" prefWidth="-1.0" text="Create Date" />
                         <TableColumn fx:id="createdByCol" minWidth="100.0" prefWidth="-1.0" text="Created By" />
                         <TableColumn fx:id="lastUpdateCol" minWidth="100.0" prefWidth="-1.0" text="Last Update" />
@@ -172,7 +172,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionModifyCust" text="Modify">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionViewModifyCust" text="View/Modify">
                            <effect>
                               <DropShadow />
                            </effect>

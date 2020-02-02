@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Customer {
@@ -14,9 +15,9 @@ public class Customer {
     private String customerName;
     private int addressId;
     private boolean active;
-    private Timestamp createDate;
+    private LocalDateTime createDate;
     private String createdBy;
-    private Timestamp lastUpdate;
+    private LocalDateTime lastUpdate;
     private String lastUpdateBy;
     private ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
 
@@ -44,19 +45,19 @@ public class Customer {
         this.addressId = addressId;
     }
 
-    public boolean isActive() {
-        return active;
+    public int isActive() {
+        return active ? 1 : 0;
     }
 
     public void setActive(boolean active) {
         this.active = active;
     }
 
-    public Date getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Timestamp createDate) {
+    public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
     }
 
@@ -68,11 +69,11 @@ public class Customer {
         this.createdBy = createdBy;
     }
 
-    public Date getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Timestamp lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
@@ -96,7 +97,7 @@ public class Customer {
         this.allAppointments.remove(appt);
     }
 
-    public Customer(int customerId, String customerName, int addressId, boolean active, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy) {
+    public Customer(int customerId, String customerName, int addressId, boolean active, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdateBy) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.addressId = addressId;

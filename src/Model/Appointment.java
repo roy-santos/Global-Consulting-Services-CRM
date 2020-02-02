@@ -2,9 +2,10 @@ package Model;
 
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Appointment {
+public class Appointment implements Comparable<Appointment>{
 
     private int appointmentId;
     private int customerId;
@@ -15,11 +16,11 @@ public class Appointment {
     private String contact;
     private String type;
     private String url;
-    private Date start;
-    private Date end;
-    private Date createDate;
+    private LocalDateTime start;
+    private LocalDateTime end;
+    private LocalDateTime createDate;
     private String createdBy;
-    private Date lastUpdate;
+    private LocalDateTime lastUpdate;
     private String lastUpdateBy;
 
     public int getAppointmentId() {
@@ -94,27 +95,27 @@ public class Appointment {
         this.url = url;
     }
 
-    public Date getStart() {
+    public LocalDateTime getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(LocalDateTime start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public LocalDateTime getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(LocalDateTime end) {
         this.end = end;
     }
 
-    public Date getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
     }
 
@@ -126,11 +127,11 @@ public class Appointment {
         this.createdBy = createdBy;
     }
 
-    public Date getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
@@ -142,7 +143,7 @@ public class Appointment {
         this.lastUpdateBy = lastUpdateBy;
     }
 
-    public Appointment(int appointmentId, int customerId, int userId, String title, String description, String location, String contact, String type, String url, Timestamp start, Timestamp end, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy) {
+    public Appointment(int appointmentId, int customerId, int userId, String title, String description, String location, String contact, String type, String url, LocalDateTime start, LocalDateTime end, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdateBy) {
         this.appointmentId = appointmentId;
         this.customerId = customerId;
         this.userId = userId;
@@ -158,5 +159,13 @@ public class Appointment {
         this.createdBy = createdBy;
         this.lastUpdate = lastUpdate;
         this.lastUpdateBy = lastUpdateBy;
+    }
+
+    @Override
+    public int compareTo(Appointment appointment) {
+        if(getStart() == null || appointment.getStart() == null) {
+            return 0;
+        }
+        return getStart().compareTo(appointment.getStart());
     }
 }

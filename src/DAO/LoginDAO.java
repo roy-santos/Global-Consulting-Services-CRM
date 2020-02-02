@@ -1,6 +1,7 @@
 package DAO;
 
 import Model.Session;
+import Utilities.DateAndTime;
 import Utilities.QueryHelper;
 
 import java.sql.ResultSet;
@@ -20,9 +21,9 @@ public class LoginDAO {
                             result.getString("userName"),
                             result.getString("password"),
                             result.getBoolean("active"),
-                            result.getTimestamp("createDate"),
+                            DateAndTime.UTCtoLocaltime(result.getTimestamp("createDate")),
                             result.getString("createdBy"),
-                            result.getTimestamp("lastUpdate"),
+                            DateAndTime.UTCtoLocaltime(result.getTimestamp("lastUpdate")),
                             result.getString("lastUpdate")
                     );
                     return true;

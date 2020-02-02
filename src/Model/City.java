@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class City {
@@ -7,9 +8,9 @@ public class City {
     private int cityId;
     private String city;
     private int countryId;
-    private Date createDate;
+    private LocalDateTime createDate;
     private String createdBy;
-    private Date lastUpdate;
+    private LocalDateTime lastUpdate;
     private String lastUpdateBy;
 
     public int getCityId() {
@@ -36,11 +37,11 @@ public class City {
         this.countryId = countryId;
     }
 
-    public Date getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
     }
 
@@ -52,11 +53,11 @@ public class City {
         this.createdBy = createdBy;
     }
 
-    public Date getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
@@ -73,7 +74,7 @@ public class City {
         return city;
     }
 
-    public City(int cityId, String city, int countryId, Date createDate, String createdBy, Date lastUpdate, String lastUpdateBy) {
+    public City(int cityId, String city, int countryId, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdateBy) {
         this.cityId = cityId;
         this.city = city;
         this.countryId = countryId;

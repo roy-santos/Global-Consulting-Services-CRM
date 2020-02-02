@@ -54,7 +54,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0">
                      <children>
-                        <Button fx:id="homeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionHomeScreen" text="Home">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionHomeScreen" text="Home">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -69,7 +69,7 @@
                   </HBox>
                   <HBox alignment="CENTER">
                      <children>
-                        <Button fx:id="customerBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionCustomersScreen" text="Customers">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionCustomersScreen" text="Customers">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -100,7 +100,7 @@
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="255.0" />
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="325.0">
                      <children>
-                        <Button fx:id="signOutBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionSignOut" text="Sign Out">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionSignOut" text="Sign Out">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -151,11 +151,11 @@
                     <columns>
                       <TableColumn fx:id="apptIdCol" minWidth="56.0" prefWidth="-1.0" text="Appt ID" />
                       <TableColumn fx:id="apptTypeCol" minWidth="75.0" prefWidth="-1.0" text="Appt Type" />
-                        <TableColumn fx:id="customerNameCol" minWidth="100.0" prefWidth="-1.0" text="Customer Name" />
-                        <TableColumn fx:id="descriptionCol" minWidth="100.0" prefWidth="-1.0" text="Description" />
-                        <TableColumn fx:id="locationCol" minWidth="100.0" prefWidth="-1.0" text="Location" />
-                        <TableColumn fx:id="contactCol" minWidth="100.0" prefWidth="-1.0" text="Contact" />
-                        <TableColumn fx:id="typeCol" minWidth="100.0" prefWidth="-1.0" text="Type" />
+                        <TableColumn fx:id="customerIdCol" minWidth="58.0" prefWidth="58.0" text="Cust ID" />
+                        <TableColumn fx:id="descriptionCol" minWidth="100.0" prefWidth="116.0" text="Description" />
+                        <TableColumn fx:id="locationCol" minWidth="84.0" prefWidth="97.0" text="Location" />
+                        <TableColumn fx:id="contactCol" minWidth="87.0" prefWidth="109.0" text="Contact" />
+                        <TableColumn fx:id="typeCol" minWidth="78.0" prefWidth="78.0" text="Type" />
                         <TableColumn fx:id="urlCol" minWidth="100.0" prefWidth="-1.0" text="URL" />
                         <TableColumn fx:id="startCol" minWidth="100.0" prefWidth="-1.0" text="Start" />
                         <TableColumn fx:id="endCol" minWidth="100.0" prefWidth="-1.0" text="End" />

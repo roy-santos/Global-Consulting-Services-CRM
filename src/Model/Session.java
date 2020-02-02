@@ -4,17 +4,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Session {
 
+    public static User currentUser;
+    public static ObservableList<Address> allAddresses = FXCollections.observableArrayList();
     public static ObservableList<Customer> allCustomers = FXCollections.observableArrayList();
     public static ObservableList<City> allCities = FXCollections.observableArrayList();
     public static ObservableList<Country> allCountries = FXCollections.observableArrayList();
     public static ObservableList<Appointment> allAppointments = FXCollections.observableArrayList();
-    public static User currentUser;
+    public static final ObservableList<String> allTimes = FXCollections.observableArrayList(
+            "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+            "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM", "02:00 PM", "02:30 PM", "03:00 PM",
+            "03:30 PM", "04:00 PM", "04:30 PM", "05:00 PM", "05:30 PM"
+    );
 
-    public static void createSessionUser(int userId, String username, String password, Boolean active, Timestamp createDate, String createdBy, Timestamp lastUpdate, String lastUpdateBy){
+    public static void createSessionUser(int userId, String username, String password, Boolean active, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdateBy){
         currentUser = new User(userId, username, password, active, createDate, createdBy, lastUpdate, lastUpdateBy);
     }
 
@@ -55,6 +64,7 @@ public class Session {
     }
 
     public static void endSession() {
+        allAddresses.clear();
         allCustomers.clear();
         allCities.clear();
         allCountries.clear();

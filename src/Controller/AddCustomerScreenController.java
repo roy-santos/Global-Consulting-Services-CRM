@@ -1,10 +1,15 @@
 package Controller;
 
+import DAO.AddressDAO;
 import DAO.CitiesDAO;
 import DAO.CountriesDAO;
+import DAO.CustomerDAO;
+import Model.Address;
 import Model.City;
 import Model.Country;
+import Model.Customer;
 import Model.Session;
+import Utilities.DateAndTime;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,9 +26,9 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -39,19 +44,7 @@ public class AddCustomerScreenController implements Initializable {
     private Label userNameField;
 
     @FXML
-    private Button homeBtn;
-
-    @FXML
     private Button customerBtn;
-
-    @FXML
-    private Button appointmentsBtn;
-
-    @FXML
-    private Button signOutBtn;
-
-    @FXML
-    private TextField customerIdField;
 
     @FXML
     private TextField customerNameField;
@@ -61,6 +54,12 @@ public class AddCustomerScreenController implements Initializable {
 
     @FXML
     private TextField address2Field;
+
+    @FXML
+    private TextField postalCodeField;
+
+    @FXML
+    private TextField phoneField;
 
     @FXML
     private ChoiceBox<City> cityChoiceBox;
@@ -77,14 +76,9 @@ public class AddCustomerScreenController implements Initializable {
     }
 
     @FXML
-    void onActionAddCountry(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onActionApptScreen(ActionEvent event) throws IOException {
+    void onActionAddCountry(ActionEvent event) throws IOException {
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/View/AppointmentScreen.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("/View/AddCountryScreen.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
@@ -105,22 +99,6 @@ public class AddCustomerScreenController implements Initializable {
     }
 
     @FXML
-    void onActionCustomersScreen(ActionEvent event) throws IOException {
-        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/View/CustomerScreen.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
-    }
-
-    @FXML
-    void onActionHomeScreen(ActionEvent event) throws IOException {
-        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/View/HomeScreen.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
-    }
-
-    @FXML
     void onActionModifyCity(ActionEvent event) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -135,18 +113,92 @@ public class AddCustomerScreenController implements Initializable {
             stage.setScene(new Scene(scene));
             stage.show();
         } catch (NullPointerException e) {
-            System.out.println("Exception: " + e);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "No city selected.");
+            alert.setTitle("ERROR");
+
+            Optional<ButtonType> result = alert.showAndWait();
         }
     }
 
     @FXML
     void onActionModifyCountry(ActionEvent event) {
-        System.out.println(countryChoiceBox.getSelectionModel().getSelectedItem());
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/View/ModifyCountryScreen.fxml"));
+            loader.load();
+
+            ModifyCountryScreenController modCityController = loader.getController();
+            modCityController.sendCountryInfo(countryChoiceBox.getSelectionModel().getSelectedItem());
+
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+            stage.setScene(new Scene(scene));
+            stage.show();
+        } catch (NullPointerException | IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "No country selected.");
+            alert.setTitle("ERROR");
+
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     @FXML
-    void onActionSaveCust(ActionEvent event) {
+    void onActionSaveCust(ActionEvent event) throws IOException {
+        try {
+            int maxAddressIdValue = -1;
+            for(Address address : Session.allAddresses) {
+                if(address.getAddressId() > maxAddressIdValue) {
+                    maxAddressIdValue = address.getAddressId();
+                }
+            }
 
+            Session.allAddresses.add(new Address(
+                    maxAddressIdValue + 1,
+                    address1Field.getText(),
+                    address2Field.getText(),
+                    cityChoiceBox.getSelectionModel().getSelectedItem().getCityId(),
+                    postalCodeField.getText(),
+                    phoneField.getText(),
+                    DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
+                    Session.currentUser.getUsername(),
+                    DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
+                    Session.currentUser.getUsername()
+
+            ));
+
+            AddressDAO.addNewAddress(Session.allAddresses.get(Session.allAddresses.size() - 1));
+
+            int maxCustomerIdValue = -1;
+            for(Customer customer : Session.allCustomers) {
+                if(customer.getCustomerId() > maxCustomerIdValue) {
+                    maxCustomerIdValue = customer.getCustomerId();
+                }
+            }
+
+            Session.allCustomers.add(new Customer(
+                    maxCustomerIdValue + 1,
+                    customerNameField.getText(),
+                    Session.allAddresses.size(),
+                    true,
+                    DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
+                    Session.currentUser.getUsername(),
+                    DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
+                    Session.currentUser.getUsername()
+            ));
+
+            CustomerDAO.addNewCustomer(Session.allCustomers.get(Session.allCustomers.size() - 1));
+
+            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            scene = FXMLLoader.load(getClass().getResource("/View/CustomerScreen.fxml"));
+            stage.setScene(new Scene(scene));
+            stage.show();
+
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Missing information.");
+            alert.setTitle("ERROR");
+
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     private void setUserImage() {
@@ -156,35 +208,22 @@ public class AddCustomerScreenController implements Initializable {
         imageCircle.setFill(new ImagePattern(userImage));
     }
 
-    @FXML
-    void onActionSignOut(ActionEvent event) throws IOException {
-        Session.endSession();
-        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/View/LoginScreen.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
-    }
-
     private void setChoiceBoxes() {
         cityChoiceBox.setItems(Session.allCities);
         countryChoiceBox.setItems(Session.allCountries);
     }
 
-    private void initializeCitiesAndCountries() {
-        if(Session.allCities.isEmpty()) {
-            CitiesDAO.loadCities();
-        }
-
-        if(Session.allCountries.isEmpty()) {
-            CountriesDAO.loadCountries();
-        }
+    private void initializeLists() {
+        AddressDAO.loadAddresses();
+        CitiesDAO.loadCities();
+        CountriesDAO.loadCountries();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setUserImage();
         setChoiceBoxes();
-        initializeCitiesAndCountries();
+        initializeLists();
         customerBtn.setStyle("-fx-background-color: #2a9df4; ");
     }
 }

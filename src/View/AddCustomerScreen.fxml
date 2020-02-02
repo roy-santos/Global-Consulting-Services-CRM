@@ -52,7 +52,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0">
                      <children>
-                        <Button fx:id="homeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionHomeScreen" text="Home">
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" text="Home">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -67,7 +67,7 @@
                   </HBox>
                   <HBox alignment="CENTER">
                      <children>
-                        <Button fx:id="customerBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionCustomersScreen" text="Customers">
+                        <Button fx:id="customerBtn" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" text="Customers">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -82,7 +82,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="210.0">
                      <children>
-                        <Button fx:id="appointmentsBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionApptScreen" text="Appointments">
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" text="Appointments">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -98,7 +98,7 @@
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="255.0" />
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="325.0">
                      <children>
-                        <Button fx:id="signOutBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionSignOut" text="Sign Out">
+                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" text="Sign Out">
                            <effect>
                               <DropShadow />
                            </effect>
@@ -151,6 +151,8 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -160,10 +162,17 @@
                                     <Label layoutX="10.0" layoutY="19.0" text="Customer Name:" GridPane.rowIndex="1" />
                                     <Label layoutX="10.0" layoutY="53.0" text="Address 1:" GridPane.rowIndex="2" />
                                     <Label layoutX="10.0" layoutY="86.0" text="Address 2:" GridPane.rowIndex="3" />
-                                    <TextField fx:id="customerIdField" GridPane.columnIndex="1" />
+                                    <TextField disable="true" text="~ auto generated" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
                                     <TextField fx:id="customerNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField fx:id="address1Field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <TextField fx:id="address2Field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label text="Postal Code:" GridPane.rowIndex="4" />
+                                    <Label text="Phone:" GridPane.rowIndex="5" />
+                                    <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                  </children>
                               </GridPane>
                            </children>

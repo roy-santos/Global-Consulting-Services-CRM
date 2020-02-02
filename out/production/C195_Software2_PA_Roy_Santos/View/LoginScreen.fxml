@@ -44,7 +44,7 @@
             </TextField>
             <HBox alignment="CENTER">
                <children>
-                  <Label text="Username">
+                  <Label fx:id="usernameLabel" text="Username">
                      <HBox.margin>
                         <Insets bottom="10.0" />
                      </HBox.margin>
@@ -61,14 +61,14 @@
             </TextField>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="260.0">
                <children>
-                  <Label text="Password" />
+                  <Label fx:id="passwordLabel" text="Password" />
                </children>
             </HBox>
             <VBox alignment="CENTER">
                <children>
                   <HBox alignment="CENTER" prefHeight="57.0" prefWidth="332.0">
                      <children>
-                        <Button fx:id="signOnBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionSignOnBtn" style="-fx-background-color: #20B2AA;" text="SIGN ON">
+                        <Button fx:id="logInBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionLogInBtn" style="-fx-background-color: #20B2AA;" text="Log In">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

@@ -1,8 +1,10 @@
 package Controller;
 
+import DAO.CitiesDAO;
 import Model.City;
 import Model.Country;
 import Model.Session;
+import Utilities.DateAndTime;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -28,6 +31,7 @@ public class ModifyCityScreenController implements Initializable {
 
     Stage stage;
     Parent scene;
+    int cityId;
 
     @FXML
     private Circle imageCircle;
@@ -53,15 +57,62 @@ public class ModifyCityScreenController implements Initializable {
 
         if(result.isPresent() && result.get() == ButtonType.OK) {
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource("/View/CustomerScreen.fxml"));
+            scene = FXMLLoader.load(getClass().getResource("/View/AddCustomerScreen.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
         }
     }
 
     @FXML
-    void onActionSave(ActionEvent event) {
-        // TODO -learn localization/timezones for pushing pushing new record to the DB
+    void onActionDelete(ActionEvent event) throws IOException {
+
+        for (City city : Session.allCities) {
+
+            if (cityNameField.getText().equals(city.getCity())) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "City will be deleted. Continue?");
+                alert.setTitle("CONFIRMATION");
+
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    CitiesDAO.deleteCity(city);
+                    stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                    scene = FXMLLoader.load(getClass().getResource("/View/AddCustomerScreen.fxml"));
+                    stage.setScene(new Scene(scene));
+                    stage.show();
+                }
+            }
+        }
+        Alert alert = new Alert(Alert.AlertType.ERROR, "No matching city exists.");
+        alert.setTitle("ERROR");
+
+        Optional<ButtonType> result = alert.showAndWait();
+    }
+
+    @FXML
+    void onActionSave(ActionEvent event) throws IOException {
+        if(!cityNameField.getText().isEmpty() && countryChoiceBox.getSelectionModel().getSelectedItem() != null) {
+            for (City city : Session.allCities) {
+                if (cityId == city.getCityId()) {
+                    city.setCity(cityNameField.getText());
+                    city.setCountryId(countryChoiceBox.getSelectionModel().getSelectedItem().getCountryId());
+                    city.setLastUpdate(DateAndTime.ldtTimeFormatter(LocalDateTime.now()));
+                    city.setLastUpdateBy(Session.currentUser.getUsername());
+
+                    CitiesDAO.modifyCity(city);
+
+                    stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                    scene = FXMLLoader.load(getClass().getResource("/View/AddCustomerScreen.fxml"));
+                    stage.setScene(new Scene(scene));
+                    stage.show();
+                }
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Missing information.");
+            alert.setTitle("ERROR");
+
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     private void setUserImage() {
@@ -76,6 +127,7 @@ public class ModifyCityScreenController implements Initializable {
     }
 
     public void sendCityInfo(City city) {
+        cityId = city.getCityId();
         cityNameField.setText(city.getCity());
     }
 

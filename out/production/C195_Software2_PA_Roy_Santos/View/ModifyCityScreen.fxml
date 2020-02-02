@@ -151,6 +151,8 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -160,10 +162,17 @@
                                     <Label disable="true" layoutX="10.0" layoutY="19.0" text="Customer Name:" GridPane.rowIndex="1" />
                                     <Label disable="true" layoutX="10.0" layoutY="53.0" text="Address 1:" GridPane.rowIndex="2" />
                                     <Label disable="true" layoutX="10.0" layoutY="86.0" text="Address 2:" GridPane.rowIndex="3" />
-                                    <TextField disable="true" GridPane.columnIndex="1" />
+                                    <TextField disable="true" text="~ auto generated" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="System Italic" size="12.0" />
+                                       </font></TextField>
                                     <TextField disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <TextField disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label disable="true" text="Postal Code:" GridPane.rowIndex="4" />
+                                    <Label disable="true" text="Phone:" GridPane.rowIndex="5" />
+                                    <TextField disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                  </children>
                               </GridPane>
                            </children>
@@ -191,7 +200,12 @@
                                           <ChoiceBox fx:id="countryChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label text="Country:" GridPane.rowIndex="1" />
                                           <TextField fx:id="cityNameField" GridPane.columnIndex="1" />
-                                          <Button mnemonicParsing="false" onAction="#onActionSave" text="Save" GridPane.rowIndex="2" />
+                                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="12.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#onActionSave" text="Save" />
+                                                <Button mnemonicParsing="false" onAction="#onActionDelete" text="Delete" />
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </GridPane>
                                  </children>

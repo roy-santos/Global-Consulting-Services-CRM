@@ -1,5 +1,7 @@
 package Model;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Address {
@@ -10,9 +12,9 @@ public class Address {
     private int cityId;
     private String postalCode;
     private String phone;
-    private Date createDate;
+    private LocalDateTime createDate;
     private String createdBy;
-    private Date lastUpdate;
+    private LocalDateTime lastUpdate;
     private String lastUpdateBy;
 
     public int getAddressId() {
@@ -63,11 +65,11 @@ public class Address {
         this.phone = phone;
     }
 
-    public Date getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
     }
 
@@ -79,11 +81,11 @@ public class Address {
         this.createdBy = createdBy;
     }
 
-    public Date getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Date lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
@@ -95,7 +97,7 @@ public class Address {
         this.lastUpdateBy = lastUpdateBy;
     }
 
-    public Address(int addressId, String address, String address2, int cityId, String postalCode, String phone, Date createDate, String createdBy, Date lastUpdate, String lastUpdateBy) {
+    public Address(int addressId, String address, String address2, int cityId, String postalCode, String phone, LocalDateTime createDate, String createdBy, LocalDateTime lastUpdate, String lastUpdateBy) {
         this.addressId = addressId;
         this.address = address;
         this.address2 = address2;
