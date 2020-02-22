@@ -40,7 +40,10 @@ public class AppointmentScreenController implements Initializable {
 
     Stage stage;
     Parent scene;
-    private static ObservableList<Appointment> filteredAppointments = FXCollections.observableArrayList();
+    int viewInt = 0;
+    private static ObservableList<Appointment> userFilteredAppointments = FXCollections.observableArrayList();
+    private static ObservableList<Appointment> weekFilteredAppointments = FXCollections.observableArrayList();
+    private static ObservableList<Appointment> monthFilteredAppointments = FXCollections.observableArrayList();
 
     @FXML
     private Circle imageCircle;
@@ -192,9 +195,17 @@ public class AppointmentScreenController implements Initializable {
     @FXML
     void onActionToggleViewBtn(ActionEvent event) {
         if(viewBtn.getText().equals("Week View")) {
-            viewBtn.setText("Month View");
-        } else {
+            viewBtn.setText("All Appointments");
+            viewInt = 0;
+            setAppointmentsTable();
+        } else if (viewBtn.getText().equals("Month View")) {
             viewBtn.setText("Week View");
+            viewInt = 1;
+            setAppointmentsTable();
+        } else {
+            viewBtn.setText("Month View");
+            viewInt = 2;
+            setAppointmentsTable();
         }
     }
 
@@ -229,19 +240,55 @@ public class AppointmentScreenController implements Initializable {
         });
     }
 
-    private void setAppointmentsTable() {
+    private void createLists() {
         AppointmentsDAO.loadAppointments();
 
-        if(!filteredAppointments.isEmpty()) {
-            filteredAppointments.clear();
+        if(!userFilteredAppointments.isEmpty()) {
+            userFilteredAppointments.clear();
+        }
+
+        if(!weekFilteredAppointments.isEmpty()) {
+            weekFilteredAppointments.clear();
+        }
+
+        if(!monthFilteredAppointments.isEmpty()) {
+            monthFilteredAppointments.clear();
         }
 
         for(Appointment appointment : Session.allAppointments) {
             if(appointment.getUserId() == Session.currentUser.getUserId()) {
-                filteredAppointments.add(appointment);
+                userFilteredAppointments.add(appointment);
             }
         }
-        appointmentsTblView.setItems(filteredAppointments);
+
+        for(Appointment appointment : userFilteredAppointments) {
+            if(appointment.getStart().isBefore(LocalDateTime.now().plusDays(7))) {
+                weekFilteredAppointments.add(appointment);
+            }
+        }
+
+        for(Appointment appointment : userFilteredAppointments) {
+            if(appointment.getStart().isBefore(LocalDateTime.now().plusDays(30))) {
+                monthFilteredAppointments.add(appointment);
+            }
+        }
+    }
+
+    private void setAppointmentsTable() {
+
+        switch (viewInt) {
+            case 0:
+                appointmentsTblView.setItems(userFilteredAppointments);
+                break;
+            case 1:
+                appointmentsTblView.setItems(weekFilteredAppointments);
+                break;
+            case 2:
+                appointmentsTblView.setItems(monthFilteredAppointments);
+                break;
+        }
+
+
         apptIdCol.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
         apptTypeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
         customerIdCol.setCellValueFactory(new PropertyValueFactory<>("customerId"));
@@ -263,6 +310,7 @@ public class AppointmentScreenController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setUserImage();
         setDatePicker();
+        createLists();
         setAppointmentsTable();
         appointmentsBtn.setStyle("-fx-background-color: #2a9df4; ");
     }

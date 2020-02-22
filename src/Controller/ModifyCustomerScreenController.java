@@ -105,6 +105,8 @@ public class ModifyCustomerScreenController implements Initializable {
                         address.setLastUpdateBy(Session.currentUser.getUsername());
 
                         AddressDAO.modifyAddress(address);
+
+                        break;
                     }
                 }
                 customer.setLastUpdate(LocalDateTime.now());
@@ -116,6 +118,8 @@ public class ModifyCustomerScreenController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/View/CustomerScreen.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
+                break;
             }
         }
     }

@@ -125,7 +125,7 @@
                            </effect>
                         </DatePicker>
                         <Region prefHeight="42.0" prefWidth="155.0" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="viewBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionToggleViewBtn" text="Week View">
+                        <Button fx:id="viewBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionToggleViewBtn" text="All Appointments">
                            <effect>
                               <DropShadow />
                            </effect>

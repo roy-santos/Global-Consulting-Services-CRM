@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class CustomerDAO {
 
-    public static void loadCustomers() {
+    public static ResultSet loadCustomers() {
         try {
             QueryHelper.makeQuery("SELECT * FROM customer");
 
@@ -33,9 +33,12 @@ public class CustomerDAO {
                             result.getString("LastUpdateBy")
                     ));
             }
+
+            return result;
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
+        return null;
     }
 
     public static void addNewCustomer(Customer customer) {

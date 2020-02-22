@@ -48,6 +48,7 @@ public class ModifyAppointmentScreenController implements Initializable {
     Parent scene;
     int appointmentId;
     private static ObservableList<Customer> filteredCustomers = FXCollections.observableArrayList();
+    private static ObservableList<Appointment> userFilteredAppointments = FXCollections.observableArrayList();
 
 
     @FXML
@@ -113,33 +114,76 @@ public class ModifyAppointmentScreenController implements Initializable {
         }
     }
 
+    private static boolean overlapChecker(LocalDateTime start, LocalDateTime end) {
+
+        if(!userFilteredAppointments.isEmpty()) {
+            userFilteredAppointments.clear();
+        }
+
+        for(Appointment appointment : Session.allAppointments) {
+            if(appointment.getUserId() == Session.currentUser.getUserId()) {
+                userFilteredAppointments.add(appointment);
+            }
+        }
+
+        for(Appointment appointment : userFilteredAppointments) {
+            if(start.isAfter(appointment.getStart()) && start.isBefore(appointment.getEnd())) {
+                return true;
+            } else if (start.isEqual(appointment.getStart()) || start.isEqual(appointment.getEnd())) {
+                return true;
+            } else if(end.isAfter(appointment.getStart()) && end.isBefore(appointment.getEnd())){
+                return true;
+            } else if(end.isEqual(appointment.getStart()) || end.isEqual(appointment.getEnd())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @FXML
     void onActionSaveAppt(ActionEvent event) throws ParseException, IOException {
-        for(Appointment appointment : Session.allAppointments) {
-            if(appointment.getAppointmentId() == appointmentId) {
-                appointment.setCustomerId(apptCustomerTableView.getSelectionModel().getSelectedItem().getCustomerId());
-                appointment.setTitle(titleField.getText());
-                appointment.setDescription(descriptionField.getText());
-                appointment.setLocation(locationField.getText());
-                appointment.setContact(contactField.getText());
-                appointment.setType(typeField.getText());
-                appointment.setUrl(urlField.getText());
 
-                LocalDateTime start = DateAndTime.apptTimeFormatter(datePicker.getValue(), startTimeBox.getValue());
-                LocalDateTime end = DateAndTime.apptTimeFormatter(datePicker.getValue(), endTimeBox.getValue());
+        LocalDateTime start = DateAndTime.apptTimeFormatter(datePicker.getValue(), startTimeBox.getValue());
+        LocalDateTime end = DateAndTime.apptTimeFormatter(datePicker.getValue(), endTimeBox.getValue());
 
-                appointment.setStart(start);
-                appointment.setEnd(end);
-                appointment.setLastUpdate(DateAndTime.ldtTimeFormatter(LocalDateTime.now()));
-                appointment.setLastUpdateBy(Session.currentUser.getUsername());
+        if(!overlapChecker(start, end)) {
+            for (Appointment appointment : Session.allAppointments) {
+                if (appointment.getAppointmentId() == appointmentId) {
+                    if (start.isAfter(LocalDateTime.now()) && !start.getDayOfWeek().toString().equals("SATURDAY") && !start.getDayOfWeek().toString().equals("SUNDAY") && end.isAfter(start)) {
+                        appointment.setCustomerId(apptCustomerTableView.getSelectionModel().getSelectedItem().getCustomerId());
+                        appointment.setTitle(titleField.getText());
+                        appointment.setDescription(descriptionField.getText());
+                        appointment.setLocation(locationField.getText());
+                        appointment.setContact(contactField.getText());
+                        appointment.setType(typeField.getText());
+                        appointment.setUrl(urlField.getText());
 
-                AppointmentsDAO.modifyAppointment(appointment);
+                        appointment.setStart(start);
+                        appointment.setEnd(end);
+                        appointment.setLastUpdate(DateAndTime.ldtTimeFormatter(LocalDateTime.now()));
+                        appointment.setLastUpdateBy(Session.currentUser.getUsername());
 
-                stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-                scene = FXMLLoader.load(getClass().getResource("/View/AppointmentScreen.fxml"));
-                stage.setScene(new Scene(scene));
-                stage.show();
+                        AppointmentsDAO.modifyAppointment(appointment);
+
+                        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                        scene = FXMLLoader.load(getClass().getResource("/View/AppointmentScreen.fxml"));
+                        stage.setScene(new Scene(scene));
+                        stage.show();
+
+                        break;
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "Make sure that: \n\t\u2022 start date is later than today,\n\t\u2022 end date is later than start,\n\t\u2022 date selected is not a weekend.");
+                        alert.setTitle("ERROR");
+
+                        Optional<ButtonType> result = alert.showAndWait();
+                    }
+                }
             }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Appointment time overlaps with another appointment. Please select another date and time.");
+            alert.setTitle("ERROR");
+
+            Optional<ButtonType> result = alert.showAndWait();
         }
     }
 
@@ -190,7 +234,6 @@ public class ModifyAppointmentScreenController implements Initializable {
 
         datePicker.setValue(appointment.getStart().toLocalDate());
          for(String time : Session.allTimes) {
-             System.out.println(time);
              if(time.equals(DateAndTime.timeFormatter(appointment.getStart()))) {
                  startTimeBox.setValue(time);
              }

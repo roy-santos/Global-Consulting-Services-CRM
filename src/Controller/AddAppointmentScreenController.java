@@ -29,15 +29,11 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.text.ParseException;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -47,6 +43,7 @@ public class AddAppointmentScreenController implements Initializable {
     Stage stage;
     Parent scene;
     private static ObservableList<Customer> filteredCustomers = FXCollections.observableArrayList();
+    private static ObservableList<Appointment> userFilteredAppointments = FXCollections.observableArrayList();
 
 
     @FXML
@@ -109,6 +106,32 @@ public class AddAppointmentScreenController implements Initializable {
         }
     }
 
+    private static boolean overlapChecker(LocalDateTime start, LocalDateTime end) {
+
+        if(!userFilteredAppointments.isEmpty()) {
+            userFilteredAppointments.clear();
+        }
+
+        for(Appointment appointment : Session.allAppointments) {
+            if(appointment.getUserId() == Session.currentUser.getUserId()) {
+                userFilteredAppointments.add(appointment);
+            }
+        }
+
+        for(Appointment appointment : userFilteredAppointments) {
+            if(start.isAfter(appointment.getStart()) && start.isBefore(appointment.getEnd())) {
+                return true;
+            } else if (start.isEqual(appointment.getStart()) || start.isEqual(appointment.getEnd())) {
+                return true;
+            } else if(end.isAfter(appointment.getStart()) && end.isBefore(appointment.getEnd())){
+                return true;
+            } else if(end.isEqual(appointment.getStart()) || end.isEqual(appointment.getEnd())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @FXML
     void onActionSaveAppt(ActionEvent event) throws ParseException, IOException {
         int maxAppointmentIdValue = -1;
@@ -119,34 +142,41 @@ public class AddAppointmentScreenController implements Initializable {
         LocalDateTime start = DateAndTime.apptTimeFormatter(datePicker.getValue(), startTimeBox.getValue());
         LocalDateTime end = DateAndTime.apptTimeFormatter(datePicker.getValue(), endTimeBox.getValue());
 
-        if(start.isAfter(LocalDateTime.now()) && end.isAfter(start)) {
-            Session.allAppointments.add(new Appointment(
-                    maxAppointmentIdValue + 1,
-                    apptCustomerTableView.getSelectionModel().getSelectedItem().getCustomerId(),
-                    Session.currentUser.getUserId(),
-                    titleField.getText(),
-                    descriptionField.getText(),
-                    locationField.getText(),
-                    contactField.getText(),
-                    typeField.getText(),
-                    urlField.getText(),
-                    start,
-                    end,
-                    DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
-                    Session.currentUser.getUsername(),
-                    DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
-                    Session.currentUser.getUsername()
-            ));
+        if(!overlapChecker(start, end)) {
+            if (start.isAfter(LocalDateTime.now()) && !start.getDayOfWeek().toString().equals("SATURDAY") && !start.getDayOfWeek().toString().equals("SUNDAY") && end.isAfter(start)) {
+                Session.allAppointments.add(new Appointment(
+                        maxAppointmentIdValue + 1,
+                        apptCustomerTableView.getSelectionModel().getSelectedItem().getCustomerId(),
+                        Session.currentUser.getUserId(),
+                        titleField.getText(),
+                        descriptionField.getText(),
+                        locationField.getText(),
+                        contactField.getText(),
+                        typeField.getText(),
+                        urlField.getText(),
+                        start,
+                        end,
+                        DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
+                        Session.currentUser.getUsername(),
+                        DateAndTime.ldtTimeFormatter(LocalDateTime.now()),
+                        Session.currentUser.getUsername()
+                ));
 
-            AppointmentsDAO.addNewAppointment(Session.allAppointments.get(Session.allAppointments.size() - 1));
+                AppointmentsDAO.addNewAppointment(Session.allAppointments.get(Session.allAppointments.size() - 1));
 
-            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource("/View/AppointmentScreen.fxml"));
-            stage.setScene(new Scene(scene));
-            stage.show();
+                stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                scene = FXMLLoader.load(getClass().getResource("/View/AppointmentScreen.fxml"));
+                stage.setScene(new Scene(scene));
+                stage.show();
 
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Make sure that: \n\t\u2022 start date is later than today,\n\t\u2022 end date is later than start,\n\t\u2022 date selected is not a weekend.");
+                alert.setTitle("ERROR");
+
+                Optional<ButtonType> result = alert.showAndWait();
+            }
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Make sure that start date is later than today and end date is later than start.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Appointment time overlaps with another appointment. Please select another date and time.");
             alert.setTitle("ERROR");
 
             Optional<ButtonType> result = alert.showAndWait();

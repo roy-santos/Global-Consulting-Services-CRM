@@ -99,6 +99,13 @@ public class ModifyCountryScreenController implements Initializable {
                 scene = FXMLLoader.load(getClass().getResource("/View/AddCustomerScreen.fxml"));
                 stage.setScene(new Scene(scene));
                 stage.show();
+
+                break;
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Missing information.");
+                alert.setTitle("ERROR");
+
+                Optional<ButtonType> result = alert.showAndWait();
             }
         }
     }

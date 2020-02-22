@@ -5,7 +5,7 @@ import DAO.CustomerDAO;
 import Model.Appointment;
 import Model.Customer;
 import Model.Session;
-import Utilities.DateAndTime;
+import Utilities.ReportingInterface;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,18 +19,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -65,17 +63,47 @@ public class HomeScreenController implements Initializable {
     private Label nextCustomerName;
 
     @FXML
-    void onActionSchedReport(ActionEvent event) {
+    void onActionSchedReport(ActionEvent event) throws IOException {
+
+        Stage secondStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Pane root = fxmlLoader.load(getClass().getResource("/View/ScheduleReportScreen.fxml").openStream());
+        secondStage.setScene(new Scene(root, 500, 325));
+        secondStage.setTitle("Schedule Report");
+        secondStage.showAndWait();
 
     }
 
     @FXML
-    void onActionApptReport(ActionEvent event) {
+    void onActionApptReport(ActionEvent event) throws IOException {
+
+        Stage secondStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Pane root = fxmlLoader.load(getClass().getResource("/View/AppointmentReportScreen.fxml").openStream());
+        secondStage.setScene(new Scene(root, 325, 325));
+        secondStage.setTitle("Appointments Report");
+        secondStage.showAndWait();
 
     }
 
     @FXML
     void onActionCustReport(ActionEvent event) {
+
+        ReportingInterface customerReport = () -> {
+
+            int numberOfCustomers = 0;
+
+            for(Customer customer : Session.allCustomers) {
+                if(customer.getCreatedBy().equals(Session.currentUser.getUsername())) {
+                    numberOfCustomers += 1;
+                }
+            }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Number of Customers" );
+            alert.setContentText("You have " + numberOfCustomers + " customers.");
+            alert.showAndWait();
+        };
+        customerReport.generateReport();
 
     }
 
@@ -137,22 +165,29 @@ public class HomeScreenController implements Initializable {
 
         Collections.sort(filteredAppointments);
 
-        try {
-            LocalDateTime nextAppt = filteredAppointments.get(0).getStart();
-            String dateApptStr = nextAppt.format(dateFormat);
-            String timeApptStr = nextAppt.format(timeFormat);
-            nextAppointmentDate.setText(dateApptStr + " at " + timeApptStr);
+        LocalDateTime upcomingAppt = null;
+        for(Appointment appointment : filteredAppointments) {
+            if (appointment.getStart().isAfter(LocalDateTime.now())) {
+                upcomingAppt = appointment.getStart();
 
-            CustomerDAO.loadCustomers();
 
-            for(Customer customer : Session.allCustomers) {
-                if(customer.getCustomerId() == filteredAppointments.get(0).getCustomerId()) {
-                    nextCustomerName.setText(customer.getCustomerName());
+                LocalDateTime nextAppt = upcomingAppt;
+                String dateApptStr = nextAppt.format(dateFormat);
+                String timeApptStr = nextAppt.format(timeFormat);
+                nextAppointmentDate.setText(dateApptStr + " at " + timeApptStr);
+
+                CustomerDAO.loadCustomers();
+
+                for (Customer customer : Session.allCustomers) {
+                    if (customer.getCustomerId() == appointment.getCustomerId()) {
+                        nextCustomerName.setText(customer.getCustomerName());
+                    }
                 }
+                break;
+            } else {
+                nextAppointmentDate.setText("No upcoming appointment");
+                nextCustomerName.setText("No upcoming customer");
             }
-        } catch(NullPointerException e) {
-            nextAppointmentDate.setText("No upcoming appointment");
-            nextCustomerName.setText("No upcoming customer");
         }
     }
 

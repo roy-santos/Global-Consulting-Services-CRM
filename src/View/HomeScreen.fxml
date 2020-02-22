@@ -166,7 +166,7 @@
                   </HBox>
                   <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #20B2AA;">
                      <children>
-                        <Label text="Print Reports">
+                        <Label text="Generate Reports">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -174,7 +174,7 @@
                               <DropShadow blurType="GAUSSIAN" color="#0000006c" />
                            </effect>
                         </Label>
-                        <Region prefHeight="42.0" prefWidth="147.0" />
+                        <Region prefHeight="42.0" prefWidth="120.0" />
                         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onActionApptReport" text="Appointments">
                            <effect>
                               <DropShadow />

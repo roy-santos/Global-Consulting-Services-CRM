@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.LoginDAO;
 import Model.Session;
+import Utilities.DateAndTime;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ import java.io.PrintWriter;
 import java.net.URL;;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -53,7 +55,7 @@ public class LoginScreenController implements Initializable {
             String filename = "Logger.txt";
             FileWriter fileWriter = new FileWriter(filename, true);
             PrintWriter outputFile = new PrintWriter(fileWriter);
-            outputFile.println(Session.currentUser.getUsername() + ", " + LocalDateTime.now());
+            outputFile.println("Username: " + Session.currentUser.getUsername() + "\nLogin Time (UTC): " + Instant.now() + "\n");
             outputFile.close();
 
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();

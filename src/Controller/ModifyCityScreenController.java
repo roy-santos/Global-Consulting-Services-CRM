@@ -105,6 +105,8 @@ public class ModifyCityScreenController implements Initializable {
                     scene = FXMLLoader.load(getClass().getResource("/View/AddCustomerScreen.fxml"));
                     stage.setScene(new Scene(scene));
                     stage.show();
+
+                    break;
                 }
             }
         } else {
