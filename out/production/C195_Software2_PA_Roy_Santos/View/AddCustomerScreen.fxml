@@ -159,8 +159,8 @@
                                  </VBox.margin>
                                  <children>
                                     <Label text="Customer ID:" />
-                                    <Label layoutX="10.0" layoutY="19.0" text="Customer Name:" GridPane.rowIndex="1" />
-                                    <Label layoutX="10.0" layoutY="53.0" text="Address 1:" GridPane.rowIndex="2" />
+                                    <Label layoutX="10.0" layoutY="19.0" text="* Customer Name : " GridPane.rowIndex="1" />
+                                    <Label layoutX="10.0" layoutY="53.0" text="* Address 1:" GridPane.rowIndex="2" />
                                     <Label layoutX="10.0" layoutY="86.0" text="Address 2:" GridPane.rowIndex="3" />
                                     <TextField disable="true" text="~ auto generated" GridPane.columnIndex="1">
                                        <font>
@@ -169,8 +169,8 @@
                                     <TextField fx:id="customerNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField fx:id="address1Field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <TextField fx:id="address2Field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Label text="Postal Code:" GridPane.rowIndex="4" />
-                                    <Label text="Phone:" GridPane.rowIndex="5" />
+                                    <Label text="* Postal Code:" GridPane.rowIndex="4" />
+                                    <Label text="* Phone:" GridPane.rowIndex="5" />
                                     <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                  </children>
@@ -195,7 +195,7 @@
                                           <Insets right="20.0" top="20.0" />
                                        </VBox.margin>
                                        <children>
-                                          <Label text="City:" GridPane.rowIndex="1" />
+                                          <Label text="* City:" GridPane.rowIndex="1" />
                                           <Button mnemonicParsing="false" onAction="#onActionAddCity" text="Add City" GridPane.rowIndex="2" />
                                           <Button mnemonicParsing="false" onAction="#onActionModifyCity" text="Modify City" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <ChoiceBox fx:id="cityChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -222,7 +222,7 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label text="Country:" />
+                                          <Label text="* Country:" />
                                           <Button mnemonicParsing="false" onAction="#onActionAddCountry" text="Add Country" GridPane.rowIndex="1" />
                                           <Button mnemonicParsing="false" onAction="#onActionModifyCountry" text="Modify Country" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <ChoiceBox fx:id="countryChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" />

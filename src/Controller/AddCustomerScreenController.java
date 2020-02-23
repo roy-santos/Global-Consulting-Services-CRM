@@ -142,9 +142,22 @@ public class AddCustomerScreenController implements Initializable {
         }
     }
 
+    private boolean incompletedFormChecker(ChoiceBox<Model.City> cityBox,ChoiceBox<Model.Country> countryBox,String... strings) {
+        for(String s : strings) {
+            if ( s == null || s.isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @FXML
     void onActionSaveCust(ActionEvent event) throws IOException {
         try {
+            if(incompletedFormChecker(cityChoiceBox,countryChoiceBox,customerNameField.getText(), address1Field.getText(), postalCodeField.getText(), phoneField.getText())) {
+                 throw new RuntimeException();
+            }
+
             int maxAddressIdValue = -1;
             for(Address address : Session.allAddresses) {
                 if(address.getAddressId() > maxAddressIdValue) {
@@ -194,7 +207,7 @@ public class AddCustomerScreenController implements Initializable {
             stage.show();
 
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Missing information.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Missing information. Please complete all fields marked with an asterisk symbol.");
             alert.setTitle("ERROR");
 
             Optional<ButtonType> result = alert.showAndWait();
