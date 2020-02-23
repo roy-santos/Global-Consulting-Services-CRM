@@ -2,7 +2,7 @@ package Controller;
 
 import DAO.LoginDAO;
 import Model.Session;
-import Utilities.DateAndTime;
+import Utilities.AlertInterface;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +18,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -49,6 +46,21 @@ public class LoginScreenController implements Initializable {
     @FXML
     void onActionLogInBtn(ActionEvent event) throws IOException {
 
+        // Use of lambda expression reduces the amount of code written by allowing for code re-usability.
+        AlertInterface loginErrorAlert = ((title, contentText) -> {
+            if (Locale.getDefault().getLanguage().equals("es")) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle(rb.getString(title));
+                alert.setContentText(rb.getString(contentText));
+                alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle(title);
+                alert.setContentText(contentText);
+                alert.showAndWait();
+            }
+        });
+
         if (LoginDAO.authenticateLogin(usernameField.getText(), passwordField.getText())) {
 
             // Log user activity
@@ -64,15 +76,11 @@ public class LoginScreenController implements Initializable {
             stage.show();
         } else {
             if (Locale.getDefault().getLanguage().equals("es")) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle(rb.getString("invalid"));
-                alert.setContentText(rb.getString("error"));
-                alert.showAndWait();
+                // Lambda expression is reused
+                loginErrorAlert.alertCreator("invalid", "error");
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Invalid Credentials");
-                alert.setContentText("The username and password did not match.");
-                alert.showAndWait();
+                // Lambda expression is reused
+                loginErrorAlert.alertCreator("Invalid Credentials", "The username and password did not match");
             }
         }
     }

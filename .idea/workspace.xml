@@ -2,46 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/AppointmentReportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ScheduleReportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/TimeOverlapExamples.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/AppointmentTypesReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utilities/ReportingInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/AppointmentReportScreen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/ScheduleReportScreen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/CustomerReportScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/CustomerReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utilities/AlertInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/CustomerReportScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AddAppointmentScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AddAppointmentScreenController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AddAppointmentScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AddAppointmentScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AppointmentScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AppointmentScreenController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AppointmentScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AppointmentScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/CustomerScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/CustomerScreenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AppointmentReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/AppointmentReportController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/HomeScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/HomeScreenController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/LoginScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/LoginScreenController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyAppointmentScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyAppointmentScreenController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyAppointmentScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyAppointmentScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyCityScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyCityScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyCountryScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyCountryScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyCustomerScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ModifyCustomerScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/DAO/CustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/DAO/CustomerDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ScheduleReportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Controller/ScheduleReportController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Main/TimeOverlapExamples.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Main/TimezoneExamples.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Model/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/AppointmentScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/AppointmentScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Utilities/DateAndTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Utilities/DateAndTime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/Utilities/ReportingInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/AppointmentReportScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/AppointmentReportScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/HomeScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/HomeScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/ScheduleReportScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/C195_Software2_PA_Roy_Santos/View/ScheduleReportScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AddAppointmentScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddAppointmentScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CustomerScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomerScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentReportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LoginScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ModifyAppointmentScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifyAppointmentScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModifyCityScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifyCityScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModifyCountryScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifyCountryScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ModifyCustomerScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModifyCustomerScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CustomerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ScheduleReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ScheduleReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/TimeOverlapExamples.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/TimezoneExamples.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/queryExamples.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AppointmentScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/DateAndTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/DateAndTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/ReportingInterface.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/HomeScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/HomeScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/ScheduleReportScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ScheduleReportScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,19 +143,19 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View" />
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\Utilities" />
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\DAO" />
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src" />
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\img" />
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View_Controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="View_Controller" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\Utilities" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\DAO" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\img" />
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View_Controller" />
     </key>
   </component>
@@ -286,11 +282,15 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1119" y="332" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1580253432244" />
-    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser" timestamp="1582354277251">
+    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser" timestamp="1582408745162">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1038" y="86" key="#com.intellij.ide.util.MemberChooser/0.0.1600.870@0.0.1600.870" timestamp="1582317817743" />
-    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1582354277251" />
+    <state x="1245" y="210" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1582408745162" />
+    <state x="964" y="252" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582402246021">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="964" y="252" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1582402246021" />
     <state x="1092" y="414" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1580018293613">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -307,46 +307,46 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1220" y="281" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1582168699051" />
-    <state width="1865" height="223" key="GridCell.Tab.0.bottom" timestamp="1582354944980">
+    <state width="1877" height="126" key="GridCell.Tab.0.bottom" timestamp="1582464441788">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1545" height="144" key="GridCell.Tab.0.bottom/0.0.1600.870@0.0.1600.870" timestamp="1582325583242" />
-    <state width="1865" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1582354944980" />
-    <state width="1865" height="223" key="GridCell.Tab.0.center" timestamp="1582354944980">
+    <state width="1877" height="126" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1582464441788" />
+    <state width="1877" height="126" key="GridCell.Tab.0.center" timestamp="1582464441788">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1545" height="144" key="GridCell.Tab.0.center/0.0.1600.870@0.0.1600.870" timestamp="1582325583242" />
-    <state width="1865" height="223" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1582354944980" />
-    <state width="1865" height="223" key="GridCell.Tab.0.left" timestamp="1582354944980">
+    <state width="1877" height="126" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1582464441788" />
+    <state width="1877" height="126" key="GridCell.Tab.0.left" timestamp="1582464441788">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1545" height="144" key="GridCell.Tab.0.left/0.0.1600.870@0.0.1600.870" timestamp="1582325583241" />
-    <state width="1865" height="223" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1582354944980" />
-    <state width="1865" height="223" key="GridCell.Tab.0.right" timestamp="1582354944980">
+    <state width="1877" height="126" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1582464441788" />
+    <state width="1877" height="126" key="GridCell.Tab.0.right" timestamp="1582464441788">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1545" height="144" key="GridCell.Tab.0.right/0.0.1600.870@0.0.1600.870" timestamp="1582325583242" />
-    <state width="1865" height="223" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1582354944980" />
-    <state width="1865" height="285" key="GridCell.Tab.1.bottom" timestamp="1582350791547">
+    <state width="1877" height="126" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1582464441788" />
+    <state width="1219" height="284" key="GridCell.Tab.1.bottom" timestamp="1582463877842">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1557" height="238" key="GridCell.Tab.1.bottom/0.0.1600.870@0.0.1600.870" timestamp="1582068802631" />
-    <state width="1865" height="285" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1582350791547" />
-    <state width="1865" height="285" key="GridCell.Tab.1.center" timestamp="1582350791547">
+    <state width="1219" height="284" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1582463877842" />
+    <state width="1219" height="284" key="GridCell.Tab.1.center" timestamp="1582463877841">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1557" height="238" key="GridCell.Tab.1.center/0.0.1600.870@0.0.1600.870" timestamp="1582068802631" />
-    <state width="1865" height="285" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1582350791547" />
-    <state width="1865" height="285" key="GridCell.Tab.1.left" timestamp="1582350791547">
+    <state width="1219" height="284" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1582463877841" />
+    <state width="1219" height="284" key="GridCell.Tab.1.left" timestamp="1582463877841">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1557" height="238" key="GridCell.Tab.1.left/0.0.1600.870@0.0.1600.870" timestamp="1582068802631" />
-    <state width="1865" height="285" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1582350791547" />
-    <state width="1865" height="285" key="GridCell.Tab.1.right" timestamp="1582350791547">
+    <state width="1219" height="284" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1582463877841" />
+    <state width="1219" height="284" key="GridCell.Tab.1.right" timestamp="1582463877842">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1557" height="238" key="GridCell.Tab.1.right/0.0.1600.870@0.0.1600.870" timestamp="1582068802631" />
-    <state width="1865" height="285" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1582350791547" />
+    <state width="1219" height="284" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1582463877842" />
     <state x="880" y="104" key="SettingsEditor" timestamp="1578464394428">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -397,21 +397,5 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1031" y="231" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1580592150228" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controller/ModifyAppointmentScreenController.java</url>
-          <line>149</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controller/AppointmentReportController.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -21,11 +21,8 @@ import java.util.ResourceBundle;
 
 public class AppointmentReportController implements Initializable {
 
-    private static ObservableList<String> months = FXCollections.observableArrayList("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-    private static ObservableList<String> years = FXCollections.observableArrayList("2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030");
-    private static ObservableList<Appointment> monthFilteredAppointments = FXCollections.observableArrayList();
-
-
+    ObservableList<String> months = FXCollections.observableArrayList("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    ObservableList<String> years = FXCollections.observableArrayList("2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030");
 
     @FXML
     private ComboBox<String> monthPicker;
@@ -72,10 +69,11 @@ public class AppointmentReportController implements Initializable {
 
     private void generateReport() {
 
-        if(!monthFilteredAppointments.isEmpty()) {
-            monthFilteredAppointments.clear();
-        }
-//
+        ObservableList<Appointment> monthFilteredAppointments = FXCollections.observableArrayList();
+        ObservableList<AppointmentTypesReport> typesPerMonthList = FXCollections.observableArrayList();
+        ArrayList<String> uniqueTypes = new ArrayList<String>();
+        ArrayList<String> allTypes = new ArrayList<String>();
+
         for(Appointment appointment : Session.allAppointments) {
             if(appointment.getUserId() == Session.currentUser.getUserId()) {
                 if(String.valueOf(appointment.getStart().getYear()).toLowerCase().equals(yearPicker.getValue().toLowerCase())) {
@@ -85,10 +83,6 @@ public class AppointmentReportController implements Initializable {
                 }
             }
         }
-
-        ArrayList<String> uniqueTypes = new ArrayList<String>();
-        ArrayList<String> allTypes = new ArrayList<String>();
-        ObservableList<AppointmentTypesReport> typesPerMonthList = FXCollections.observableArrayList();
 
         for(Appointment appointment : monthFilteredAppointments) {
             allTypes.add(appointment.getType());
@@ -100,17 +94,11 @@ public class AppointmentReportController implements Initializable {
         for(String type : uniqueTypes) {
             int occurrence = Collections.frequency(allTypes, type);
             typesPerMonthList.add(new AppointmentTypesReport(type, occurrence));
-
         }
 
         appointmentsTblView.setItems(typesPerMonthList);
         apptTypeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
         numberOfAppointmentsCol.setCellValueFactory(new PropertyValueFactory<>("amountOfType"));
-    }
-
-    @FXML
-    private void generateReport2() {
-        generateReport();
     }
 
     @Override

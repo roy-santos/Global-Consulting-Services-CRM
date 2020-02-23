@@ -44,6 +44,7 @@ public class AddAppointmentScreenController implements Initializable {
     Parent scene;
     private static ObservableList<Customer> filteredCustomers = FXCollections.observableArrayList();
     private static ObservableList<Appointment> userFilteredAppointments = FXCollections.observableArrayList();
+    private static ObservableList<Appointment> userFilteredAppointments2 = FXCollections.observableArrayList();
 
 
     @FXML
@@ -112,11 +113,16 @@ public class AddAppointmentScreenController implements Initializable {
             userFilteredAppointments.clear();
         }
 
-        for(Appointment appointment : Session.allAppointments) {
+        if(!userFilteredAppointments2.isEmpty()) {
+            userFilteredAppointments2.clear();
+        }
+
+        // Using lambda expression in the forEach method provides better readability than using a for loop.
+        Session.allAppointments.forEach(appointment -> {
             if(appointment.getUserId() == Session.currentUser.getUserId()) {
                 userFilteredAppointments.add(appointment);
             }
-        }
+        });
 
         for(Appointment appointment : userFilteredAppointments) {
             if(start.isAfter(appointment.getStart()) && start.isBefore(appointment.getEnd())) {

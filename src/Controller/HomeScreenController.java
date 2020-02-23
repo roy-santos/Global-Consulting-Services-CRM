@@ -5,7 +5,6 @@ import DAO.CustomerDAO;
 import Model.Appointment;
 import Model.Customer;
 import Model.Session;
-import Utilities.ReportingInterface;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +22,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -45,15 +43,6 @@ public class HomeScreenController implements Initializable {
     private Button homeBtn;
 
     @FXML
-    private Button customerBtn;
-
-    @FXML
-    private Button appointmentsBtn;
-
-    @FXML
-    private Button signOutBtn;
-
-    @FXML
     private Label userNameField;
 
     @FXML
@@ -71,7 +60,6 @@ public class HomeScreenController implements Initializable {
         secondStage.setScene(new Scene(root, 500, 325));
         secondStage.setTitle("Schedule Report");
         secondStage.showAndWait();
-
     }
 
     @FXML
@@ -83,28 +71,17 @@ public class HomeScreenController implements Initializable {
         secondStage.setScene(new Scene(root, 325, 325));
         secondStage.setTitle("Appointments Report");
         secondStage.showAndWait();
-
     }
 
     @FXML
-    void onActionCustReport(ActionEvent event) {
+    void onActionCustReport(ActionEvent event) throws IOException {
 
-        ReportingInterface customerReport = () -> {
-
-            int numberOfCustomers = 0;
-
-            for(Customer customer : Session.allCustomers) {
-                if(customer.getCreatedBy().equals(Session.currentUser.getUsername())) {
-                    numberOfCustomers += 1;
-                }
-            }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Number of Customers" );
-            alert.setContentText("You have " + numberOfCustomers + " customers.");
-            alert.showAndWait();
-        };
-        customerReport.generateReport();
-
+        Stage secondStage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Pane root = fxmlLoader.load(getClass().getResource("/View/CustomerReportScreen.fxml").openStream());
+        secondStage.setScene(new Scene(root, 325, 325));
+        secondStage.setTitle("Appointments Report");
+        secondStage.showAndWait();
     }
 
     @FXML

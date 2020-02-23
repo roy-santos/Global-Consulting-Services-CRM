@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="325.0" minWidth="325.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AppointmentReportController">
+<BorderPane minHeight="325.0" minWidth="325.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CustomerReportScreenController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -27,8 +26,6 @@
                <children>
                   <HBox alignment="CENTER_LEFT" minHeight="45.0" spacing="5.0" style="-fx-background-color: #20B2AA;">
                      <children>
-                        <ComboBox fx:id="monthPicker" onAction="#onActionGenReportMonth" prefWidth="126.0" />
-                        <ComboBox fx:id="yearPicker" onAction="#onActionGenReportYear" prefWidth="90.0" />
                         <Region HBox.hgrow="ALWAYS" />
                      </children>
                      <opaqueInsets>
@@ -44,10 +41,10 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <TableView fx:id="appointmentsTblView" VBox.vgrow="ALWAYS">
+                  <TableView fx:id="customerReportTableView" VBox.vgrow="ALWAYS">
                     <columns>
-                      <TableColumn fx:id="apptTypeCol" maxWidth="1000.0" minWidth="50.0" prefWidth="-1.0" text="Appointment Type" />
-                        <TableColumn fx:id="numberOfAppointmentsCol" maxWidth="1000.0" prefWidth="-1.0" text="Amount" />
+                      <TableColumn fx:id="customerNameCol" maxWidth="1000.0" minWidth="100.0" prefWidth="-1.0" text="Customer Name" />
+                        <TableColumn fx:id="amountOfApptsCol" maxWidth="1000.0" minWidth="100.0" prefWidth="-1.0" text="Amount of Appts" />
                     </columns>
                      <VBox.margin>
                         <Insets />

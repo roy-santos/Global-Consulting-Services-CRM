@@ -2,9 +2,15 @@ package Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+
 import java.time.LocalDateTime;
 
 public class Session {
+
+    Stage stage;
+    Parent scene;
 
     public static User currentUser;
     public static ObservableList<Address> allAddresses = FXCollections.observableArrayList();

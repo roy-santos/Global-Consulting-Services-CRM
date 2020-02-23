@@ -29,16 +29,13 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -46,7 +43,7 @@ public class ModifyAppointmentScreenController implements Initializable {
 
     Stage stage;
     Parent scene;
-    int appointmentId;
+    private int appointmentId;
     private static ObservableList<Customer> filteredCustomers = FXCollections.observableArrayList();
     private static ObservableList<Appointment> userFilteredAppointments = FXCollections.observableArrayList();
 
@@ -114,7 +111,7 @@ public class ModifyAppointmentScreenController implements Initializable {
         }
     }
 
-    private static boolean overlapChecker(LocalDateTime start, LocalDateTime end) {
+    private boolean overlapChecker(LocalDateTime start, LocalDateTime end) {
 
         if(!userFilteredAppointments.isEmpty()) {
             userFilteredAppointments.clear();
@@ -127,7 +124,11 @@ public class ModifyAppointmentScreenController implements Initializable {
         }
 
         for(Appointment appointment : userFilteredAppointments) {
-            if(start.isAfter(appointment.getStart()) && start.isBefore(appointment.getEnd())) {
+            //System.out.println(Integer.valueOf(appointment.getAppointmentId()));
+            //System.out.println(appointmentId);
+            if(Integer.valueOf(appointment.getAppointmentId()) == appointmentId) {
+                return false;
+            } else if(start.isAfter(appointment.getStart()) && start.isBefore(appointment.getEnd())) {
                 return true;
             } else if (start.isEqual(appointment.getStart()) || start.isEqual(appointment.getEnd())) {
                 return true;
@@ -135,6 +136,8 @@ public class ModifyAppointmentScreenController implements Initializable {
                 return true;
             } else if(end.isEqual(appointment.getStart()) || end.isEqual(appointment.getEnd())) {
                 return true;
+            } else if(Integer.valueOf(appointment.getAppointmentId()) == appointmentId) {
+                return false;
             }
         }
         return false;
@@ -146,7 +149,12 @@ public class ModifyAppointmentScreenController implements Initializable {
         LocalDateTime start = DateAndTime.apptTimeFormatter(datePicker.getValue(), startTimeBox.getValue());
         LocalDateTime end = DateAndTime.apptTimeFormatter(datePicker.getValue(), endTimeBox.getValue());
 
-        if(!overlapChecker(start, end)) {
+        ArrayList<Integer> allAppointmentsList = new ArrayList<Integer>();
+        for(Appointment appointmentCheck : Session.allAppointments) {
+            allAppointmentsList.add(appointmentCheck.getAppointmentId());
+        }
+
+        if (!overlapChecker(start, end)) {
             for (Appointment appointment : Session.allAppointments) {
                 if (appointment.getAppointmentId() == appointmentId) {
                     if (start.isAfter(LocalDateTime.now()) && !start.getDayOfWeek().toString().equals("SATURDAY") && !start.getDayOfWeek().toString().equals("SUNDAY") && end.isAfter(start)) {
@@ -170,7 +178,6 @@ public class ModifyAppointmentScreenController implements Initializable {
                         stage.setScene(new Scene(scene));
                         stage.show();
 
-                        break;
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Make sure that: \n\t\u2022 start date is later than today,\n\t\u2022 end date is later than start,\n\t\u2022 date selected is not a weekend.");
                         alert.setTitle("ERROR");

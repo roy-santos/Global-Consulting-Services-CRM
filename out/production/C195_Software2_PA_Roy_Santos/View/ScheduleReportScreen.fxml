@@ -45,7 +45,7 @@
                     <columns>
                       <TableColumn fx:id="customerNameCol" maxWidth="1000.0" minWidth="125.0" prefWidth="-1.0" text="Customer Name" />
                         <TableColumn fx:id="apptTypeCol" maxWidth="1000.0" minWidth="100.0" prefWidth="-1.0" text="Appt Type" />
-                        <TableColumn fx:id="dateAndTimeCol" minWidth="25.0" prefWidth="-1.0" text="Date and Time" />
+                        <TableColumn fx:id="dateAndTimeCol" minWidth="25.0" prefWidth="-1.0" text="Start Date/Time" />
                     </columns>
                      <VBox.margin>
                         <Insets />
