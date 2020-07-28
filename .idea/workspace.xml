@@ -115,20 +115,20 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\Application_Screenshots" />
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos" />
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\Utilities" />
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\DAO" />
-      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="View_Controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View" />
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\Utilities" />
       <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\View_Controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="View_Controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\app_screenshots" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\Application_Screenshots" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\Utilities" />
+      <recent name="C:\Users\roysa\IdeaProjects\C195_Software2_PA_Roy_Santos\src\DAO" />
     </key>
   </component>
   <component name="RunManager">

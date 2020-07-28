@@ -25,7 +25,7 @@ application code.
 
 ### Images
 **Login screen**:<br>
-<img src="app_screeshots/GCSlogin.png" width=300 align=center>
+<img src="app_screenshots/GCSlogin.png" width=300 align=center>
 <br><br>
 **Dashboard**:<br>
 <img src="app_screenshots/GCSmain.png" width=300 align=center>
