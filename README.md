@@ -25,14 +25,14 @@ application code.
 
 ### Images
 **Login screen**:<br>
-<img src="app_screenshots/GCSlogin.png" width=300 align=center>
+<img src="app_screenshots/GCSlogin.png" width=250 align=center>
 <br><br>
 **Dashboard**:<br>
-<img src="app_screenshots/GCSmain.png" width=300 align=center>
+<img src="app_screenshots/GCSmain.png" width=350 align=center>
 <br><br>
 **Customers screen**:<br>
-<img src="app_screenshots/GCScustomers.png" width=300 align=center>
+<img src="app_screenshots/GCScustomers.png" width=350 align=center>
 <br><br>
 **Appointments screen**:<br>
-<img src="app_screenshots/GCSappointments.png" width=300 align=center>
+<img src="app_screenshots/GCSappointments.png" width=350 align=center>
 
