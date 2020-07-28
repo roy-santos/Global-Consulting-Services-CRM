@@ -1,4 +1,4 @@
-#CRM Software
+# CRM Software
 A customer relationship management application for a fictitious company called Global Consulting Services built using Java and JavaFX (with Scenebuilder).
 
 ### Installation
@@ -18,21 +18,21 @@ A customer relationship management application for a fictitious company called G
 ### Project Takeaways
 **Establishing DB Connection**: Using Java's mySQL JDBC API to connect to database.
 
-**DAO Design Pattern**: Utilizes data access object(DAO) design pattern to abstract database related code from
+**DAO Design Pattern**: Utilizes data access object (DAO) design pattern to abstract database related code from
 application code.
 
 **Application Security**: Implementing a login page to validate an authorized user of the connected database.
 
 ### Images
-**Login screen**:
+**Login screen**:<br>
 <img src="Application_Screenshots/GCSlogin.png" width=300 align=center>
-
-**Dashboard**:
+<br><br>
+**Dashboard**:<br>
 <img src="Application_Screenshots/GCSmain.png" width=300 align=center>
-
-**Customers screen**:
+<br><br>
+**Customers screen**:<br>
 <img src="Application_Screenshots/GCScustomers.png" width=300 align=center>
-
-**Appointments screen**:
+<br><br>
+**Appointments screen**:<br>
 <img src="Application_Screenshots/GCSappointments.png" width=300 align=center>
 
