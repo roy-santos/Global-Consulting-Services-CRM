@@ -1,4 +1,4 @@
-# CRM Software
+# CRM Application
 A customer relationship management application for a fictitious company called Global Consulting Services built using Java, JavaFX (Scenebuilder) and MySQL.
 
 ### Installation
