@@ -1,5 +1,5 @@
 # CRM Software
-A customer relationship management application for a fictitious company called Global Consulting Services built using Java and JavaFX (with Scenebuilder).
+A customer relationship management application for a fictitious company called Global Consulting Services built using Java, JavaFX (Scenebuilder) and mySQL.
 
 ### Installation
 **Note**: This application is only for educational purposes.  It will attempt to connect to a local host.
